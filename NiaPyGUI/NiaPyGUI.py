@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import pyqtSlot
 from NiaPy.algorithms.basic import *
+from NiaPy.algorithms.modified import *
 from NiaPy.benchmarks import *
 import matplotlib.pyplot as plt
 from PIL import Image, ImageChops
@@ -68,8 +69,16 @@ class NiaPyGUI(QtWidgets.QMainWindow, Ui_MainWindow):
 
     @pyqtSlot()
     def run_algorithm(self):
-        print "running"
-        
+        algorithm = str(self.comboBoxAlgorithms.currentText()) 
+        if algorithm == "FlowerPollinationAlgorithm":
+            Algorithm = FlowerPollinationAlgorithm(NP=10, D=20, nFES=1000, p=0.5, benchmark=Ackley())
+            Best = Algorithm.run()
+            self.label_4.setText(str(Best))
+        elif algorithm == "FireflyAlgorithm":
+            Algorithm = FireflyAlgorithm(D=10, NP=20, nFES=1000, alpha=0.5, betamin=0.2, gamma=1.0, benchmark=Sphere())
+            Best = Algorithm.run()
+            self.label_4.setText(str(Best))
+            
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
