@@ -24,7 +24,7 @@ def main():
     f.close()
 
     translator = QTranslator()
-    translator.load(':/translations/' + 'fr_FR' + '.qm')
+    translator.load(':/translations/' + QLocale.system().name() + '.qm')
     app.installTranslator(translator)
 
     mw = MainWindow()
