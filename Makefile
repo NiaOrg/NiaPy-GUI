@@ -44,8 +44,7 @@ docs: cleanup build-resources
 
 # BUILD TASKS #################################################################
 .PHONY: dist
-dist:
-	cleanup
+dist: cleanup
 	pipenv run $(PYTHON) setup.py bdist_app
 
 # CLEAN TASKS #################################################################
@@ -60,7 +59,7 @@ cleanup: .clean-resources .clean-build .clean-install
 
 .PHONY: .clean-build
 .clean-build:
-	rm -rf *.spec dist build
+	rm -rf dist build
 
 .PHONY: .clean-install
 .clean-install:

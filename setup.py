@@ -79,7 +79,7 @@ class bdist_app(Command):
 cmdclass['bdist_app'] = bdist_app
 
 
-setup(name='app',
+setup(name='NiaPy-GUI',
       version=_version,
       packages=find_packages(),
       description='NiaPy Graphical User Interface',

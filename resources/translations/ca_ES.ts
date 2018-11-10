@@ -9,8 +9,8 @@
     </message>
     <message>
         <location filename="../views/MainWindow.ui" line="14"/>
-        <source>App</source>
-        <translation></translation>
+        <source>NiaPy-GUI</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
