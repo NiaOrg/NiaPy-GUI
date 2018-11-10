@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QMainWindow
 
 from . MainWindow_ui import Ui_MainWindow
 
+
 class MainWindow(QMainWindow, Ui_MainWindow):
     """Main Window."""
 

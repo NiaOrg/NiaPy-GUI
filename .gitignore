@@ -9,3 +9,6 @@ build*
 *_ui.py
 *_rc.py
 *.qm
+
+# MacOS
+.DS_Store/

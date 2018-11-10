@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QApplication
 
 from . views.MainWindow import MainWindow
 
-from . import resources_rc  # noqa
+from . import resources_rc # noqa
 
 
 def main():
