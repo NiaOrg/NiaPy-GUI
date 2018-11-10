@@ -22,7 +22,7 @@ exe = EXE(pyz,
           strip=False,
           upx=True,
           console=False,
-          icon='resources\\icons\\app.ico')
+          icon='resources\\icons\\niapy-gui-logo.ico')
 
 coll = COLLECT(exe,
                a.binaries,
@@ -34,5 +34,5 @@ coll = COLLECT(exe,
 
 app = BUNDLE(coll,
              name='NiaPy-GUI.app',
-             icon='resources/icons/app.icns',
+             icon='resources/icons/niapy-gui-logo.icns',
              bundle_identifier=None)

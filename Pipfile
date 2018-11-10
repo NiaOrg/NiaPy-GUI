@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 "PyQt5" = "==5.11.2"
+niapy = "==2.0.0rc2"
 
 [dev-packages]
 pyqt-distutils = "==0.7.3"

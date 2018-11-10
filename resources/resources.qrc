@@ -7,8 +7,8 @@
         <file>translations/es_ES.qm</file>
         <file>translations/fr_FR.qm</file>
         <file>icons/demo.svg</file>
-        <file>icons/app.icns</file>
-        <file>icons/app.ico</file>
-        <file>icons/app.svg</file>
+        <file>icons/niapy-gui-logo.icns</file>
+        <file>icons/niapy-gui-logo.ico</file>
+        <file>icons/niapy-gui-logo.svg</file>
     </qresource>
 </RCC>

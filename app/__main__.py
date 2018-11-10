@@ -12,7 +12,7 @@ from . import resources_rc # noqa
 def main():
     app = QApplication(sys.argv)
 
-    app.setWindowIcon(QIcon(':/icons/app.svg'))
+    app.setWindowIcon(QIcon(':/icons/niapy-gui-logo.svg'))
 
     fontDB = QFontDatabase()
     fontDB.addApplicationFont(':/fonts/Roboto-Regular.ttf')
