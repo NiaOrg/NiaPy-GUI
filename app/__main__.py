@@ -1,7 +1,7 @@
 import sys
 
 from PyQt5.QtGui import QFontDatabase, QFont, QIcon
-from PyQt5.QtCore import QFile, QTextStream, QTranslator, QLocale
+from PyQt5.QtCore import QFile, QTextStream, QTranslator, QLocale, QTimer
 from PyQt5.QtWidgets import QApplication
 
 from . views.MainWindow import MainWindow
@@ -29,6 +29,11 @@ def main():
 
     mw = MainWindow()
     mw.show()
+
+    # enable terminating the app using Ctrl-C
+    timer = QTimer()
+    timer.timeout.connect(lambda: None)
+    timer.start(100)
 
     sys.exit(app.exec_())
 
