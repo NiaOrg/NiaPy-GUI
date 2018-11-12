@@ -1,58 +1,13 @@
+import sys
 from PyQt5.QtWidgets import QMainWindow, QAbstractItemView
-from PyQt5.QtCore import QObject, pyqtSignal, pyqtSlot
+from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtGui import QTextCursor
+from NiaPy.algorithms import basic, modified, other # noqa
 import qtawesome as qta
-import NiaPy.algorithms.basic # noqa
 
 from . MainWindow_ui import Ui_MainWindow
-from inspect import getmembers, isclass
-from sys import modules # noqa
-import sys
-import re
-
-
-class PrintStream(QObject):
-
-    print('printstream object')
-
-    # This defines a signal called 'message' that takesone string argument
-    message = pyqtSignal(str)
-
-    def write(self, message):
-        self.message.emit(str(message))
-
-
-class NiapyListLoader:
-
-    @staticmethod
-    def get_niapy_algorithms():
-        print('NiapyListLoader.get_niapy_algorithms')
-        algorithms = []
-        for item in getmembers(modules['NiaPy.algorithms.basic'], isclass):
-            algorithm = re.sub(r'\B([A-Z])', r' \1', item[0])
-            print(algorithm)
-            algorithms.append(algorithm)
-
-        for item in getmembers(modules['NiaPy.algorithms.modified'], isclass):
-            algorithm = re.sub(r'\B([A-Z])', r' \1', item[0])
-            print(algorithm)
-            algorithms.append(algorithm)
-
-        for item in getmembers(modules['NiaPy.algorithms.other'], isclass):
-            algorithm = re.sub(r'\B([A-Z])', r' \1', item[0])
-            print(algorithm)
-            algorithms.append(algorithm)
-        return algorithms
-
-    @staticmethod
-    def get_niapy_benchmarks():
-        print('NiapyListLoader.get_niapy_benchmarks')
-        benchmarks = []
-        for item in getmembers(modules['NiaPy.benchmarks'], isclass):
-            benchmark = re.sub(r'\B([A-Z])', r' \1', item[0])
-            print(benchmark)
-            benchmarks.append(benchmark)
-        return benchmarks
+from .. helpers.loaders import NiaPyListLoader
+from .. helpers.streams import PrintStream
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -62,10 +17,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         QMainWindow.__init__(self)
         self.setupUi(self)
 
-        myStream = PrintStream()
-        myStream.message.connect(self.on_printStream_message)
-
-        sys.stdout = myStream # noqa
+        # initialize print streaming into textEditOutput widget
+        print_stream = PrintStream()
+        print_stream.message.connect(self.on_print_stream_message)
+        sys.stdout = print_stream # noqa
 
         # add actions to main toolbar
         self.mainToolBar.addAction(qta.icon('fa5.file'), 'New Experiment')
@@ -82,17 +37,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         print('populate listWidgetAlgorithms...')
         self.listWidgetAlgorithms.addItems(
-            NiapyListLoader().get_niapy_algorithms())
+            NiaPyListLoader().get_niapy_algorithms())
         self.listWidgetAlgorithms.setSelectionMode(
             QAbstractItemView.MultiSelection)
 
         print('populate listWidgetBenchmarks...')
         self.listWidgetBenchmarks.addItems(
-            NiapyListLoader().get_niapy_benchmarks())
+            NiaPyListLoader().get_niapy_benchmarks())
         self.listWidgetBenchmarks.setSelectionMode(
             QAbstractItemView.MultiSelection)
 
     @pyqtSlot(str)
-    def on_printStream_message(self, messsage):
+    def on_print_stream_message(self, messsage):
         self.textEditOutput.moveCursor(QTextCursor.End)
         self.textEditOutput.insertPlainText(messsage)

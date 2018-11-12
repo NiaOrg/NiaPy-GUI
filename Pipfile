@@ -16,3 +16,4 @@ sphinx_rtd_theme = "==0.4.2"
 "e1839a8" = {path = ".", editable = true}
 "flake8" = "*"
 app = {editable = true, path = "."}
+"autopep8" = "*"

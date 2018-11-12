@@ -9,6 +9,7 @@
         <file>icons/demo.svg</file>
         <file>icons/niapy-gui-logo.icns</file>
         <file>icons/niapy-gui-logo.ico</file>
+        <file>icons/niapy-gui-logo.png</file>
         <file>icons/niapy-gui-logo.svg</file>
     </qresource>
 </RCC>
