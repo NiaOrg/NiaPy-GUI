@@ -1,2 +1,5 @@
 QMainWindow {
 }
+QTextEdit {
+  background: #ededed;
+}

@@ -1,15 +1,19 @@
 from PyQt5.QtWidgets import QMainWindow, QAbstractItemView
 from PyQt5.QtCore import QObject, pyqtSignal, pyqtSlot
 from PyQt5.QtGui import QTextCursor
+import qtawesome as qta
 import NiaPy.algorithms.basic # noqa
 
 from . MainWindow_ui import Ui_MainWindow
 from inspect import getmembers, isclass
-from sys import stdout, modules # noqa
+from sys import modules # noqa
+import sys
 import re
 
 
 class PrintStream(QObject):
+
+    print('printstream object')
 
     # This defines a signal called 'message' that takesone string argument
     message = pyqtSignal(str)
@@ -61,7 +65,18 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         myStream = PrintStream()
         myStream.message.connect(self.on_printStream_message)
 
-        stdout = myStream # noqa
+        sys.stdout = myStream # noqa
+
+        # add actions to main toolbar
+        self.mainToolBar.addAction(qta.icon('fa5.file'), 'New Experiment')
+        self.mainToolBar.addAction(qta.icon('fa5.save'), 'Save Experiment')
+        self.mainToolBar.addAction(
+            qta.icon('fa5.play-circle'), 'Run Experiment')
+        self.mainToolBar.addAction(
+            qta.icon('fa5.stop-circle'), 'Stop Experiment')
+
+        # config the output textedit
+        self.textEditOutput.setReadOnly(True)
 
         print('initialization of main window...')
 
@@ -79,5 +94,5 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     @pyqtSlot(str)
     def on_printStream_message(self, messsage):
-        self.textEdit.moveCursor(QTextCursor.End)
-        self.textEdit.insertPlainText(messsage)
+        self.textEditOutput.moveCursor(QTextCursor.End)
+        self.textEditOutput.insertPlainText(messsage)

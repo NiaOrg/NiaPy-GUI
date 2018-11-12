@@ -33,42 +33,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../views/MainWindow.ui" line="129"/>
+        <location filename="../views/MainWindow.ui" line="114"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../views/MainWindow.ui" line="139"/>
+        <location filename="../views/MainWindow.ui" line="124"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../views/MainWindow.ui" line="158"/>
+        <location filename="../views/MainWindow.ui" line="143"/>
         <source>Documentation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../views/MainWindow.ui" line="163"/>
+        <location filename="../views/MainWindow.ui" line="148"/>
         <source>Report Bug...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../views/MainWindow.ui" line="168"/>
+        <location filename="../views/MainWindow.ui" line="153"/>
         <source>New Experiment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../views/MainWindow.ui" line="173"/>
+        <location filename="../views/MainWindow.ui" line="158"/>
         <source>Open Experiment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../views/MainWindow.ui" line="178"/>
+        <location filename="../views/MainWindow.ui" line="163"/>
         <source>Save Experiment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../views/MainWindow.ui" line="183"/>
+        <location filename="../views/MainWindow.ui" line="168"/>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>

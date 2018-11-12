@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a45330cf19876e73804aec83c3d9288d31d95f43734620bc656910c4959f0354"
+            "sha256": "7fdffe62f3ee8ed9130d43de41e2166298b1ec78867b845c741ca63644f89138"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -313,6 +313,21 @@
                 "sha256:8e0f8568c118d3077b46be7d654cc8167fa916092e28320cde048e54bfc9f1e6"
             ],
             "version": "==2018.7"
+        },
+        "qtawesome": {
+            "hashes": [
+                "sha256:294ac84d1560d35f10a835b9f5a01906f9b63138ffb3477db066f807275c9f92",
+                "sha256:f415688877b65822d65cb2d9e9e198b37992f4e0ce7778439d14fbea6b4fb4ac"
+            ],
+            "index": "pypi",
+            "version": "==0.5.2"
+        },
+        "qtpy": {
+            "hashes": [
+                "sha256:4c690f90586c82c1210bb6fdf5e9ee4d1228809421dc6a349c5afacc27caabcd",
+                "sha256:a5ac559ef44b86e4eb083f780dd222fcdb753c5d93dd044f7fa6010537e12ddd"
+            ],
+            "version": "==1.5.2"
         },
         "requests": {
             "hashes": [
