@@ -2,18 +2,16 @@ import sys
 from PyQt5.QtWidgets import QMainWindow, QAbstractItemView
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtGui import QTextCursor
-from NiaPy.algorithms import basic, modified, other # noqa
 import qtawesome as qta
 
 from . MainWindow_ui import Ui_MainWindow
-from .. helpers.loaders import NiaPyListLoader
 from .. helpers.streams import PrintStream
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     """Main Window."""
 
-    def __init__(self):
+    def __init__(self, splash):
         QMainWindow.__init__(self)
         self.setupUi(self)
 
@@ -21,6 +19,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         print_stream = PrintStream()
         print_stream.message.connect(self.on_print_stream_message)
         sys.stdout = print_stream # noqa
+
+        self.algorithms = []
+        self.splash = splash
+        self.splash.list_loader.connect(self.list_receiver)
 
         # add actions to main toolbar
         self.mainToolBar.addAction(qta.icon('fa5.file'), 'New Experiment')
@@ -36,16 +38,21 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         print('initialization of main window...')
 
         print('populate listWidgetAlgorithms...')
-        self.listWidgetAlgorithms.addItems(
-            NiaPyListLoader().get_niapy_algorithms())
+
         self.listWidgetAlgorithms.setSelectionMode(
             QAbstractItemView.MultiSelection)
 
         print('populate listWidgetBenchmarks...')
-        self.listWidgetBenchmarks.addItems(
-            NiaPyListLoader().get_niapy_benchmarks())
+        self.listWidgetBenchmarks.addItems(self.algorithms)
         self.listWidgetBenchmarks.setSelectionMode(
             QAbstractItemView.MultiSelection)
+
+    @pyqtSlot(list)
+    def list_receiver(self, list):
+        self.algorithms = list
+        self.listWidgetAlgorithms.addItems(self.algorithms)
+        self.show()
+        self.splash.finish(self)
 
     @pyqtSlot(str)
     def on_print_stream_message(self, messsage):
