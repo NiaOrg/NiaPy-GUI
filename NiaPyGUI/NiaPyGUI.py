@@ -28,7 +28,7 @@ def show_benchmark_function(latex_code):
     plt.rc('text', usetex=True)
     plt.rc('font', family='serif')
     plt.axis('off')
-    plt.text(0.05, 0.5, latex_code, size=10)
+    plt.text(0.05, 0.5, latex_code.replace('\n',''), size=10)
     plt.savefig(buf, format='png')
     plt.close()
 
