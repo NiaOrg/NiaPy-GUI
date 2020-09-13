@@ -36,3 +36,11 @@ pip-log.txt
 
 ## paver generated files
 /paver-minilib.zip
+
+# Environment files
+*.swp
+Pipfile
+Pipfile.lock
+
+# Output files
+NiaPyGUI/benchmark_function.png
