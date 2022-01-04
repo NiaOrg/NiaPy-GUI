@@ -48,7 +48,7 @@ class NiaPyGUI(QtWidgets.QMainWindow, Ui_MainWindow):
         for algo in ALGOCLASSES:
             self.comboBoxAlgorithms.addItem(algo.Name[0] + ' (' + algo.Name[1] + ')', algo)
         for bench in BENCHCLASSES:
-            self.comboBoxBenchmarks.addItem(bench.__name__, bench.__name__)
+            self.comboBoxBenchmarks.addItem(bench.__name__, bench)
         self.pushButton.clicked.connect(self.run_algorithm)
         self.comboBoxBenchmarks.currentIndexChanged.connect(self.selection_change)
 
