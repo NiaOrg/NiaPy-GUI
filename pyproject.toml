@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "NiaPyGUI"
+version = "0.1.0"
+description = "Graphical user interface for NiaPy "
+authors = ["NiaOrg"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+PyQt5 = "^5.15.6"
+niapy = "^2.0.0"
+matplotlib = "^3.5.1"
+Pillow = "^9.0.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
