@@ -64,6 +64,6 @@ class NiaPyGUI(QtWidgets.QMainWindow, Ui_MainWindow):
             self.comboBoxAlgorithms.currentIndex())
         bench = self.comboBoxBenchmarks.itemData(
             self.comboBoxBenchmarks.currentIndex())
-        task = Task(D=10, nFES=1000, benchmark=bench())
+        task = Task(problem=bench(dimension=10), max_evals=1000)
         best = algo().run(task=task)
         self.label_4.setText(str(best))
